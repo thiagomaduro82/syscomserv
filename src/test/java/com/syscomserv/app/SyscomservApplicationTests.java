@@ -1,0 +1,13 @@
+package com.syscomserv.app;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SyscomservApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
