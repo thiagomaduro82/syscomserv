@@ -1,6 +1,9 @@
 package com.syscomserv.app.models;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -16,6 +19,8 @@ public class Fabricante implements Serializable {
     private Integer id;
 
     @Column(name = "descricao")
+    @NotEmpty(message = "O campo DESCRIÇÃO não pode ser vazio!")
+    @Length(min = 3, max = 255, message = "O campo DESCRIÇÃO deve ter entre 3 e 255 caracteres!")
     private String descricao;
 
     @Column(name = "criado_em")
