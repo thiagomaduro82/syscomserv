@@ -4,7 +4,6 @@ import com.syscomserv.app.models.Unidade;
 import com.syscomserv.app.services.UnidadeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -36,14 +35,9 @@ public class UnidadeController {
         return ResponseEntity.ok().body(unidade);
     }
 
-    @GetMapping(value = "/list-all/{campo}/{ordem}")
-    public ResponseEntity<List<Unidade>> listAll(@PathVariable String campo, @PathVariable String ordem){
-        if(ordem.equals("crescente")){
-            return ResponseEntity.ok().body(unidadeService.listAll(Sort.by(Sort.Direction.ASC, campo)));
-        } else {
-            return ResponseEntity.ok().body(unidadeService.listAll(Sort.by(Sort.Direction.DESC, campo)));
-        }
-
+    @GetMapping(value = "/list-all")
+    public ResponseEntity<List<Unidade>> listAll(){
+            return ResponseEntity.ok().body(unidadeService.listAll());
     }
 
     @PostMapping

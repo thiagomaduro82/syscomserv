@@ -6,7 +6,6 @@ import com.syscomserv.app.services.exceptions.ObjectNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -32,7 +31,7 @@ public class UnidadeService {
         return unidadeRepository.findAll(pageable);
     }
 
-    public List<Unidade> listAll(Sort sort){ return unidadeRepository.findAll(sort);}
+    public List<Unidade> listAll(){ return unidadeRepository.findAll();}
 
     public Unidade create(Unidade unidade) {
         unidade.setId(null);
